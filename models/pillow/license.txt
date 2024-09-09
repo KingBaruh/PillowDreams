@@ -1,0 +1,11 @@
+Model Information:
+* title:	Pillow
+* source:	https://sketchfab.com/3d-models/pillow-28cf19822d954753a9173ebc09f77cf3
+* author:	3DMish (https://sketchfab.com/3dmish)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Pillow" (https://sketchfab.com/3d-models/pillow-28cf19822d954753a9173ebc09f77cf3) by 3DMish (https://sketchfab.com/3dmish) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

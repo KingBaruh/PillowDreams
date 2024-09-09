@@ -1,0 +1,11 @@
+Model Information:
+* title:	Bean Bag - Base Mesh 3
+* source:	https://sketchfab.com/3d-models/bean-bag-base-mesh-3-2ead0aad0ab841009f0dc46ed612cca9
+* author:	Unreal Designer (https://sketchfab.com/unrealdesigner.ig)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Bean Bag - Base Mesh 3" (https://sketchfab.com/3d-models/bean-bag-base-mesh-3-2ead0aad0ab841009f0dc46ed612cca9) by Unreal Designer (https://sketchfab.com/unrealdesigner.ig) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

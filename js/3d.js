@@ -21,14 +21,14 @@ let object;
 let controls;
 
 //Set which object to render (pillow in this case)
-let objToRender = 'pillow';
+let objToRender = 'square_pillow';
 
 //Instantiate a loader for the .gltf file
 const loader = new GLTFLoader();
 
 // Load the texture image
-//const textureLoader = new THREE.TextureLoader();
-//const pillowTexture = textureLoader.load('image/PersonilzedSquarePillow.png'); // Replace with your image path
+const textureLoader = new THREE.TextureLoader();
+const pillowTexture = textureLoader.load('image/PersonilzedSquarePillow.png'); // Replace with your image path
 
 //Update the pillow file
 const updatePillow = () => {
@@ -74,20 +74,20 @@ document.getElementById("container3D").appendChild(renderer.domElement);
 //Set how far the camera will be from the 3D model (adjust for the pillow)
 switch (objToRender)
 {
-    case 'heart_pillow':
-        camera.position.z = 0.5;
+    case 'square_pillow':
+        camera.position.z = 100;
         break;
     case 'pillow':
         camera.position.z = 300; // Adjust the distance as needed
         break;
-    case 'pillow_triangle':
+    case 'triangular_pillow':
         camera.position.z = 0.85;
         break;
     case 'circle_pillow':
         camera.position.z = 2;
         break;
-    case 'neck_pillow':
-        camera.position.z = 0.8;
+    case 'cylinder_pillow':
+        camera.position.z = 100;
         break;
 }
 
