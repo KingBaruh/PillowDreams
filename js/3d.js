@@ -9,6 +9,7 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/l
 const scene = new THREE.Scene();
 //Create a new camera with positions and angles
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera_aspect = camera.aspect
 
 //Keep track of the mouse position for interaction
 let mouseX = window.innerWidth / 2;
@@ -21,33 +22,46 @@ let object;
 let controls;
 
 //Set which object to render (pillow in this case)
-let objToRender = 'square_pillow';
+let objToRender = 'pillow';
 
 //Instantiate a loader for the .gltf file
 const loader = new GLTFLoader();
 
+let selectedColor = 0xffffff;
+
+let animationFrameId; // Variable to store the animation frame ID
+
 // Load the texture image
 const textureLoader = new THREE.TextureLoader();
-const pillowTexture = textureLoader.load('image/PersonilzedSquarePillow.png'); // Replace with your image path
+let pillowTexture = textureLoader.load('image/white.png'); // Replace with your image path
+
+// Function to update the pillow color
+const updatePillowColor = (color) => {
+    if (object) {
+        object.traverse((child) => {
+            if (child.isMesh) {
+                child.material.color.set(new THREE.Color(color)); // Set the new color from the color picker
+            }
+        });
+    }
+};
 
 //Update the pillow file
-const updatePillow = () => {
+const setUpPillow = () => {
     loader.load(
         `models/${objToRender}/scene.gltf`, // Change the path to your actual pillow model
         function (gltf) {
             // If the file is loaded, add it to the scene
             object = gltf.scene;
 
-            // Traverse the object and change the material color
-            object.traverse((child) => {
-                if (child.isMesh) {
+            loadTexture();
 
-                    //child.material.map = pillowTexture; // Apply the texture to the material
-                    //child.material.needsUpdate = true;  // Ensure material updates with the texture
-                    // Change the material color to, for example, blue
-                    child.material.color.set(new THREE.Color(0xffffFF)); // Set to white color
-                }
-            });
+            // Traverse the object and change the material color
+            updatePillowColor(selectedColor);
+
+
+            if(objToRender !== 'cylinder_pillow')
+                object.rotation.set(0, 0, -20); // Set to origin
 
             scene.add(object);
         },
@@ -61,21 +75,30 @@ const updatePillow = () => {
         }
     );
 }
-
-
+const loadTexture = () =>{
+    object.traverse((child) =>
+    {
+        if (child.isMesh) {
+            child.material.map = pillowTexture; // Apply the texture to the material
+            child.material.needsUpdate = true;  // Ensure material updates with the textur
+        }
+    });
+}
 
 //Instantiate a new renderer and set its size
 const renderer = new THREE.WebGLRenderer({ alpha: true }); //Alpha: true allows for a transparent background
+//renderer.setSize(container.clientWidth, container.clientHeight);
 renderer.setSize(window.innerWidth, window.innerHeight);
 
 //Add the renderer to the DOM
 document.getElementById("container3D").appendChild(renderer.domElement);
 
+function updateCamera(){
 //Set how far the camera will be from the 3D model (adjust for the pillow)
 switch (objToRender)
 {
     case 'square_pillow':
-        camera.position.z = 100;
+        camera.position.z = 150;
         break;
     case 'pillow':
         camera.position.z = 300; // Adjust the distance as needed
@@ -84,11 +107,12 @@ switch (objToRender)
         camera.position.z = 0.85;
         break;
     case 'circle_pillow':
-        camera.position.z = 2;
+        camera.position.z = 2.5;
         break;
     case 'cylinder_pillow':
         camera.position.z = 100;
         break;
+}
 }
 
 //Add lights to the scene, so we can see the 3D model
@@ -101,19 +125,32 @@ const ambientLight = new THREE.AmbientLight(0x333333, 2); // Adjust intensity fo
 scene.add(ambientLight);
 
 //This adds controls to the camera, so we can rotate / zoom it with the mouse
-controls = new OrbitControls(camera, renderer.domElement);
+//controls = new OrbitControls(camera, renderer.domElement);
 
 //Render the scene and update interaction
 function animate() {
-    requestAnimationFrame(animate);
+    animationFrameId = requestAnimationFrame(animate);
 
     // Optionally add automatic rotation for the pillow
     if (object) {
-        object.rotation.y += 0.003; // Slowly rotate the pillow on the Y-axis
+        object.rotation.y += 0.006; // Slowly rotate the pillow on the Y-axis
     }
 
     renderer.render(scene, camera);
 }
+
+// Function to delete the pillow object from the scene
+const deletePillow = () => {
+
+    if (object) {
+        cancelAnimationFrame(animationFrameId); // Stop the animation frame request
+        // Remove the object from the scene
+        scene.remove(object);
+        // Set the object to null to clear the reference
+        object = null;
+    }
+};
+
 
 //Add a listener to the window, so we can resize the window and the camera
 window.addEventListener("resize", function () {
@@ -122,15 +159,44 @@ window.addEventListener("resize", function () {
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-
 // Optionally add mouse movement interaction for zooming or rotating the pillow
 document.onmousemove = (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
-    // Optionally update the pillow's rotation or scale based on the mouse position
 };
 
+// Handle color picker change
+document.getElementById("colorPicker").addEventListener("input", (e) => {
+    selectedColor = e.target.value; // Get the hex color value
+    updatePillowColor(selectedColor);     // Update the pillow color
+});
+
+document.getElementById("pillow-selection").addEventListener("change",(e) => {
+    objToRender = e.target.value; // Get the pillow value
+    console.log("here + " + objToRender);
+    deletePillow();
+    updateCamera();
+    setUpPillow();            // Update the pillow
+    animate();
+})
+
+document.getElementById('pictureUpload').addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function(event) {
+            // Create a new texture from the uploaded image
+            pillowTexture = textureLoader.load(event.target.result); // Use the loaded file data URL
+            loadTexture();
+        }
+        reader.readAsDataURL(file); // Read the file as a data URL
+    }
+});
+
+
+updateCamera();
 //Load the pillow file
-updatePillow();
+setUpPillow();
 //Start the 3D rendering
 animate();

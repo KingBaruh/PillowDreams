@@ -20,40 +20,41 @@
   </div>
 </header>
 
+
+
 <!-- גלריית הכריות -->
 <div class="gallery">
-  <div class="pillow-display" id="pillowDisplay"></div>
+  <div id="container3D"></div>
+</div>
+
+<div class="gallery-title">
+  <h2>Only 15$ per pillow!</h2>
+  <h3>get one yourself right here:</h3>
 </div>
 
 <!-- אפשרויות בחירת קטגוריות -->
 <div class="radio-group">
-  <h2>Only 15$ per pillow!</h2>
-  <h3>get one yourself right here:</h3>
-
   <h3>Select Shape &#8595</h3>
-  <div class="radio-row">
-    <label><input type="radio" name="shape" value="square" onchange="updatePillow()" checked> Square</label>
-    <label><input type="radio" name="shape" value="circle" onchange="updatePillow()"> Circle</label>
-    <label><input type="radio" name="shape" value="heart" onchange="updatePillow()"> Heart</label>
-    <label><input type="radio" name="shape" value="triangle" onchange="updatePillow()"> Triangle</label>
-    <label><input type="radio" name="shape" value="orthopedic" onchange="updatePillow()"> orthopedic</label>
+  <div class="pillow-options">
+    <label for="pillow-selection">Pillow:</label>
+    <select id="pillow-selection" name="pillow-options">
+      <option value="pillow">regular pillow</option>
+      <option value="square_pillow">square pillow</option>
+      <option value="triangular_pillow">triangular pillow</option>
+      <option value="circle_pillow">circle pillow</option>
+      <option value="cylinder_pillow">cylinder pillow</option>
+    </select>
   </div>
 
-  <h3>Select Design &#8595</h3>
-  <div class="radio-row"><span class="bold-text">Colors: </span>
-    <label><input type="radio" name="color" value="white" onchange="updatePillow()" checked> White</label>
-    <label><input type="radio" name="color" value="red" onchange="updatePillow()"> Red</label>
-    <label><input type="radio" name="color" value="orange" onchange="updatePillow()"> Orange</label>
-    <label><input type="radio" name="color" value="pink" onchange="updatePillow()"> Pink</label>
-    <label><input type="radio" name="color" value="gray" onchange="updatePillow()"> gray</label>
-    <label><input type="radio" name="color" value="blue" onchange="updatePillow()"> Blue</label>
-    <label><input type="radio" name="color" value="green" onchange="updatePillow()"> Green</label>
+  <h3>Select Color &#8595</h3>
+  <div id="colorPickerBox">
+    <label for="colorPicker">Pick Pillow Color:</label>
+    <input type="color" id="colorPicker" value="#ffffff">
   </div>
-  <div class="radio-row"><span class="bold-text">Unique designs: </span>
-    <label><input type="radio" name="color" value="Personlized" onchange="updatePillow()"> Personlized</label>
-    <label><input type="radio" name="color" value="1" onchange="updatePillow()"> Option 1</label>
-    <label><input type="radio" name="color" value="2" onchange="updatePillow()"> Option 2</label>
-    <label><input type="radio" name="color" value="3" onchange="updatePillow()"> Option 3</label>
+
+  <div id="add Picture">
+    <label for="pictureUpload">Upload Picture:</label>
+    <input type="file" id="pictureUpload" accept="image/*">
   </div>
 </div>
 
@@ -213,7 +214,7 @@
   }
 
   // תצוגה ראשונית
-  updateGallery();
+  //updateGallery();
 </script>
 
 <footer>
@@ -241,6 +242,8 @@
     <p>Copyright © 2024 All right reserved to Adi Twizer 208335927 and Baruh Riss 318739174</p>
   </div>
 </footer>
+
+<script type="module" src="js/3d.js"></script>
 
 </body>
 </html>

@@ -593,14 +593,17 @@ input[type=text_email]
 .radio-group {
     margin: 20px;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    transform: scale(1.2); /* Scales up the box on hover */
+
 }
 
-.radio-row {
+.pillow-options {
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
+    transform: scale(1.2); /* Scales up the box on hover */
+
 }
 
 .personal-details {
@@ -772,6 +775,8 @@ input[type=text_email]
     border-radius: 8px; /* פינות מעוגלות */
     transition: background-color 0.3s ease; /* מעבר צבע חלק */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* צל להעניק אפקט עומק */
+    transform: scale(1.2); /* Scales up the box on hover */
+
 }
 
 .checkout-button:hover {
@@ -821,4 +826,41 @@ input[type=text_email]
 }
 .bold-text {
     font-weight: bold;
+}
+
+#colorPickerBox {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    transform: scale(1.2); /* Scales up the box on hover */
+}
+
+#colorPicker {
+    width: 100px;
+}
+
+#container3D canvas {
+    width: 100vw !important;
+    height: 100vh !important;
+    position: absolute;
+    left: 0;
+    top: 80px;
+
+
+}
+#addPicture {
+    display: flex;
+    gap: 10px; /* Adds space between the label and the file input */
+    transform: scale(1.2); /* Scales up the box on hover */
+
+}
+
+#addPicture label {
+    margin-right: 10px; /* Adds space between the label and the file input */
+    transform: scale(1.2); /* Scales up the box on hover */
+
+}
+
+.gallery-title{
+    text-align: center;
 }

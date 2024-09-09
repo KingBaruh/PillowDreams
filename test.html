@@ -1,7 +1,3 @@
-<!--
-  EYE FREE MODEL 3D BY Oscar creativo by OSCAR CREATIVO is licensed under Creative Commons Attribution.
-  Juvenile Teratophoneus curriei byrankinstudio is licensed under Creative Commons Attribution.
--->
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +8,8 @@
             margin: 0;
             font-family: "Montserrat", sans-serif;
             background-color: #000;
+            display: grid;
+            place-items: center; /* Centers the item both vertically and horizontally */
         }
 
         header {
@@ -32,6 +30,18 @@
             top: 0;
             left: 0;
         }
+
+        #colorPickerBox {
+            margin-top: 30em;
+            top: 20px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+        }
+
+        #colorPicker {
+            width: 100px;
+        }
     </style>
 </head>
 <body>
@@ -41,6 +51,14 @@
 
 <main>
     <div id="container3D"></div>
+
+    <!-- Add the floating box with a color picker -->
+    <div id="colorPickerBox">
+        <label for="colorPicker">Pick Pillow Color:</label>
+        <input type="color" id="colorPicker" value="#ffffff">
+    </div>
+
+
 </main>
 
 <script type="module" src="js/3d.js"></script>
