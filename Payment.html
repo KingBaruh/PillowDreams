@@ -1,0 +1,235 @@
+<!--
+ID1_208335927
+ID2_318739174
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="Project_B.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Payment - Bardi &#128171 &#128164</title>
+
+</head>
+
+</html>
+<header>
+
+    <div class="logo">
+        <a href="HomePage.html"><img width="100px" height="auto" src="image/Logo.png"></a><br>
+    </div>
+
+    <div class="topnav">
+        <div class="topnav">
+            <a href="login.html">Log In</a>
+            <a href="FAQ.html">FAQ</a>
+            <a href="ContactUs.html">Contact Us</a>
+            <a href="Products.html">Products</a>
+    </div>
+    </div>
+</header>
+
+<video autoplay muted loop id="myVideo">
+    <source src="video/SparksGoingInward.mov" type="video/mp4">
+    Your browser does not support HTML5 video.
+</video>
+<script>
+    document.getElementById('myVideo').addEventListener('loadedmetadata', function() {
+        this.playbackRate = 0.5;// Set video playback speed to 0.5x
+    });
+</script>
+
+<section class="form-container">
+
+    <form class="credit-card" onreset="resetMonthlyPayment()">
+
+        <div class="form-header">
+            <h3>Payment details</h3>
+            <h1>15$</h1>
+            <h4 class="title">Credit Card Details</h4>
+        </div>
+
+        <div class="payments"><!-- מספר התשלומים -->
+            <label for="payments_num">Number of Payments</label>
+            <input id="payments_num" type="number" min="1" max="30" value="1" onchange="calculateMonthlyPayment()" required/>
+            <p id="monthlyPaymentResult">Your total payment will be divided to the number of payments you decide</p>
+
+            <script>
+                function calculateMonthlyPayment()
+                {
+                    // Get the selected number of payments from the input
+                    let numberOfPayments = document.getElementById('payments_num').value;
+
+                    // Check if the input is a valid number
+                    if (!isNaN(numberOfPayments) && numberOfPayments > 0)
+                    {
+                        // Calculate the monthly payment
+                        let monthlyPayment = 15 / numberOfPayments;
+
+                        // Display the result on the page
+                        if (numberOfPayments !== 1)
+                        {
+                            document.getElementById('monthlyPaymentResult').innerText = numberOfPayments + ' Payments for $' + monthlyPayment.toFixed(2) + ' per Month';
+                        }
+                        else
+                            document.getElementById('monthlyPaymentResult').innerText = 'Your total payment will be divided to the number of payments you decide';
+                    }
+                    else
+                    {
+                        // Display an error message if the input is invalid
+                        document.getElementById('monthlyPaymentResult').innerText = 'Please enter a valid number of payments.';
+                    }
+                }
+
+                function resetMonthlyPayment()
+                {
+                    // Reset the displayed monthly payment to the default value
+                    document.getElementById('monthlyPaymentResult').innerText = 'One Time Payment';
+                }
+                calculateMonthlyPayment();
+            </script>
+
+            <br>
+
+        </div>
+
+        <label for="credit-card-number">Credit Card Number</label><!-- מספר כרטיס האשראי -->
+        <input id="credit-card-number" type="tel"
+               autocomplete="cc-number" placeholder="XXXX-XXXX-XXXX-XXXX"
+               pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" maxlength="19" oninput="formatCreditCard(this)" required>
+
+        <script>
+            function formatCreditCard(input)
+            {
+                // Remove non-numeric characters
+                const value = input.value.replace(/\D/g, '');
+
+
+                // Check if the input is not empty
+                if (value.length > 0)
+                {
+                    // Format the credit card number
+                    const formattedValue = value.match(/.{1,4}/g).join('-');
+                    input.value = formattedValue;
+                }
+                else
+                {
+                    // If the input is empty, clear the value
+                    input.value = '';
+                }
+            }
+        </script>
+
+        <br><br>
+
+        <div class="month-year"><!-- הזנת תאריך תוקף האשראי -->
+            <label id="expiration_date">Date of expiration</label>
+            <select name="Month" id="month" required>
+                <option value="" disabled selected>Month</option>
+                <option value="january">January</option>
+                <option value="february">February</option>
+                <option value="march">March</option>
+                <option value="april">April</option>
+                <option value="may">May</option>
+                <option value="june">June</option>
+                <option value="july">July</option>
+                <option value="august">August</option>
+                <option value="september">September</option>
+                <option value="october">October</option>
+                <option value="november">November</option>
+                <option value="december">December</option>
+            </select>
+
+            <select name="Year" id="year" required>
+                <option value="" disabled selected>Year</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="2030">2030</option>
+                <option value="2031">2031</option>
+                <option value="2032">2032</option>
+            </select>
+            <br><br>
+        </div>
+
+        <div class="card-verification"><!-- הזנת פרטי CVV -->
+            <div class="cvv-input">
+                <label for="cvv_input">3-4 Numbers at the Back of the Card</label>
+                <input id="cvv_input" type="tel" placeholder="CVV" maxlength="4" pattern="[0-9]{3,4}" inputmode="numeric" size="4" oninput="formatCVV(this)" required>
+                <script>
+
+                    function formatCVV(input)
+                    {
+                        // Remove non-numeric characters
+                        const value = input.value.replace(/\D/g, '');
+
+                        // Update the input value with the formatted CVV
+                        input.value = value;
+                    }
+                </script>
+
+                <br><br>
+            </div>
+
+            <div>
+                <button type="submit">Pay</button><!-- כפתורי שלח ונקה -->
+                <button type="reset" >Clear</button>
+            </div>
+        </div>
+
+    </form>
+    
+    <br> <br>
+
+    <div class="FAQlink"><!-- מעבר לעמוד ההסבר על התהליך -->
+        <a id="link" href="FAQ.html" target="_blank"
+        >Click for more details about the personal pillow making process and about our company</a>
+    </div>
+
+</section>
+<footer>
+    <div class="footer_logo">
+        <a href="HomePage.html"><img width="150px" height="auto" src="image/Logo.png"></a><br>
+    </div>
+
+    <div class="vertical_menu">
+        <a href="HomePage.html">Home</a>
+        <a href="Products.html">Products</a>
+        <a href="FAQ.html">FAQ</a>
+        <a href="login.html">Log In</a>
+    </div>
+
+    <div class="vertical_menu">
+        <a href="Products.html">Products</a>
+        <a href="ContactUs.html">Contact Us</a>
+        <a href="#facebook">Facebook</a>
+        <a href="#instagram">Instagram</a>
+    </div>
+
+    <div class="newsletter">
+        <h3>Sign up to our newsletter to get important updates:</h3>
+        <form>
+            <label for="email">Email:</label><br>
+            <input type="text_email" id="email" name="email">
+        </form>
+
+    </div>
+
+
+    <div class="copyright">
+        <p>Copyright © 2024 All right reserved to Adi Twizer 208335927 and Baruh Riss 318739174</p>
+    </div>
+</footer>
+
+</body>
+
+</html>

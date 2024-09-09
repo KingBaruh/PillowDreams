@@ -1,0 +1,824 @@
+
+html
+{
+    scroll-behavior: smooth;
+}
+
+body
+{
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    background-color:#f5e8d4;
+    color: black;
+    margin: 0;
+}
+
+
+.topnav
+{
+    background-color: #e0d9cb;
+    overflow: hidden;
+    box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.2);
+    height: 80px;
+    width: 100%;
+
+}
+
+.topnav a
+{
+    float: right;
+    color:black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 0.999vw;
+    margin-top: 15px;
+    margin-right: 50px;
+    font-weight: bold;
+
+}
+
+.topnav a:hover
+{
+    color: blue;
+    transition: 0.5s;
+}
+
+.logo
+{
+    position: absolute;
+    padding: 10px;
+}
+
+
+.title
+{
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: xxx-large;
+    font-size: 1.5vw;
+    line-height: 25px;
+    color: white;
+    padding-top: 9%;
+    padding-left: 8%;
+}
+.secondary_title
+{
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 0.7vw;
+    color: white;
+    text-align: left;
+    padding-left: 8%;
+}
+
+
+.nebula_vid
+{
+    width: 90%;
+    height: 50%;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 5%;
+    object-fit: cover;
+    object-position: 85% 100%;
+    padding-top: 10%;
+}
+
+
+.transparent_button
+{
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+    padding: 1% 2%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.1vw;
+
+    transition-duration: 0.4s;
+    cursor: pointer;
+    opacity: 0.9;
+    margin-left: auto;
+    z-index: 10; /* ערך גבוה */
+    position: relative; /* כדי להפעיל את ה-z-index */
+
+}
+
+.transparent_button:hover
+{
+    background-color: transparent;
+    color: white;
+}
+
+.info_bg
+{
+    width: 90%;
+    height: 40%;
+    position: absolute;
+    z-index: -1;
+    right: 5%;
+    object-fit: cover;
+    margin-top: 5%;
+    background-color: #00000f;
+    display: flex;
+}
+
+.wrapper_info
+{
+    display: flex;
+}
+
+.about_us_title
+{
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 1.5vw;
+    margin-left: 9%;
+    padding-top: 9%;
+    color: white;
+}
+
+.how_title
+{
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 1.4vw;
+    padding-top: 8%;
+    color: white;
+}
+
+.about_us
+{
+    width: 450px;
+    text-align: left;
+    padding-top: 10%;
+    padding-right: 10%;
+    padding-left: 3%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 0.8vw;
+    color: white;
+}
+
+.how
+{
+    width: 500px;
+    text-align: left;
+    padding-top: 10%;
+    padding-right: 12%;
+    padding-left: 5%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 0.8vw;
+    color: white;
+}
+
+
+.wrapper_icons
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 6%;
+}
+
+.icon1,
+.icon2,
+.icon3,
+.icon4
+{
+    flex: 1 1 25%;
+    max-width: 25%;
+    text-align: center;
+    padding: 2% 0;
+    box-sizing: border-box;
+    font-size: 1vw;
+}
+
+.wrapper_icons i
+{
+    font-size: 3vw;
+    transition: transform 0.5s;
+}
+
+.wrapper_icons i:hover
+{
+    transform: rotateY(180deg);
+}
+
+
+
+
+.packages_title
+{
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 1.3vw;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.packages
+{
+    width: 80%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #00000f;
+    max-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 3%;
+}
+
+.packages .text-content
+{
+    flex: 1;
+    padding-right: 20px;
+    order: 1;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1vw;
+    margin-left: 2%;
+    color: white;
+}
+
+.packages .text-content p
+{
+    margin-bottom: 7%;
+}
+
+.packages .images
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    order: 2;
+    margin-right: 2%;
+}
+
+.packages .images img
+{
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-left: 0;
+    margin-bottom: 20px;
+}
+
+.limited_title
+{
+    text-align: center;
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 1.7vw;
+    padding-top: 4%;
+}
+
+.limited_1,
+.limited_2,
+.limited_3
+{
+    margin-top: 2%;
+    width: 90%;
+    max-width: 380px;
+    height: 550px;
+    background-color: #00000f;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.limited_1_text,
+.limited_2_text,
+.limited_3_text
+{
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 16px;
+    padding: 20px;
+    display: block;
+}
+
+.limited_1 img,
+.limited_2 img,
+.limited_3 img
+{
+    width: 100%;
+    height: auto;
+    max-height: 260px;
+}
+
+
+.wrapper_limited
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.limited_1,
+.limited_2,
+.limited_3
+{
+    flex: 1 0 30%;
+    margin: 0 30px;
+}
+
+.membership_title
+{
+    text-align: center;
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 1.7vw;
+    padding-top: 4%;
+}
+
+.membership
+{
+    background-size: contain;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.2vw;
+    margin: auto;
+    background-color: #00000f;
+    width: 90%;
+    max-width: 100%;
+    height: auto;
+    color: white;
+    text-align: center;
+    padding-top: 4%;
+}
+
+
+.recommendations_title {
+    text-align: center;
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 1.7vw;
+    padding-top: 4%;
+    margin: auto;
+}
+
+#recommendations {
+    margin-left: 15%;
+    width: 70%;
+    max-width: 100%;
+    float: left;
+    height: 10em;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1vw;
+}
+
+#recommendations > *
+{
+    height: 100%; box-sizing: border-box;
+    overflow: hidden
+}
+
+#recommendations > *:first-child
+{
+    animation: 30s autoplay3 infinite ease-in-out;
+}
+
+@keyframes autoplay3
+{
+    0% {margin-top: 10em}
+    4% {margin-top: 0em}
+    31% {margin-top: 0em}
+    35% {margin-top: -10em}
+    64% {margin-top: -10em}
+    68% {margin-top: -20em}
+    96% {margin-top: -20em}
+    100% {margin-top: -30em}
+}
+
+footer
+{
+    background-color: #e0d9cb;
+    margin-top: 20%;
+    height: 200px;
+    font-size: medium;
+}
+
+.footer_logo
+{
+    position:absolute;
+    margin-top: 3%;
+    margin-left: 5%;
+}
+
+.vertical_menu
+{
+    margin-left: 20%;
+    padding-top: 17px;
+    font-size: small;
+    float: left;
+}
+
+.vertical_menu a
+{
+    background-color: #e0d9cb;
+    color: black;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.vertical_menu a:hover
+{
+    text-decoration: underline;
+    color: #09044a;
+    transition: 1s;
+}
+
+.vertical_menu2
+{
+    font-size: small;
+    float: left;
+}
+
+.vertical_menu2 a
+{
+    background-color: #e0d9cb;
+    color: black;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.vertical_menu2 a:hover
+{
+    text-decoration: underline;
+    color: #09044a;
+    transition: 1s;
+}
+
+.newsletter
+{
+    float: left;
+    margin-left: 5%;
+    padding-top: 5px;
+}
+
+input[type=text_email]
+{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.copyright
+{
+    color: gray;
+    float: left;
+    font-size: small;
+    margin-left: 2%;
+}
+
+.Adis_table {
+    border-collapse: collapse;
+    width: 100%;
+    border-style: outset;
+    border-color: #61798f;
+    border: 10px groove #abcacb;
+    background-color: #e0d9cb;
+}
+
+.Adis_th, .Adis_td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.Adis_tr:hover {
+    background-color: #61798f;
+    color: #fffbec;
+}
+.Adis_Text
+{
+    border: 10px groove #abcacb;
+    background-color: #e0d9cb;
+    padding: 2px;
+    opacity: 0.9;
+}
+.Adis_h4
+{
+    text-align: center;
+}
+.Adis_li:hover
+{
+    background:#61798f;
+    color:#ffffff;
+
+}
+.Adis_numbers
+{
+    font-family: 'Brush Script MT', cursive;
+    font-size: large;
+    font-style: italic;
+}
+#easter_egg
+{
+    color: white;
+    font-size: 6px;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.Miframe-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+/*GPT FROM HERE*/
+  .gallery {
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+  }
+
+.arrow {
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.pillow-display {
+    width: 350px;
+    height: 350px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid #ccc;
+}
+
+.radio-group {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.radio-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.personal-details {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.personal-details input {
+    margin: 5px;
+    padding: 5px;
+}
+
+.highlight {
+    background-color: #97ced9;
+}
+.active-in-nav {
+    background-color: #dedeeb;
+}
+
+/* GPT HELP ME AGAIN;*/
+.video-wrapper {
+    position: relative;
+    width: 97.7%;
+    height: 30%;
+    right: 3.25%;
+    margin-top: -5%;
+    object-fit: cover;
+
+}
+
+.CalmingVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* כדי שהווידאו יתאים לחלוטין לממדים */
+}
+
+.text-overlay {
+    position: absolute;
+    top: 25%; /* שינוי גובה הכתב כלפי מעלה */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    z-index: 10;
+    font-family: 'Poppins', sans-serif;
+}
+
+.text-overlay h1 {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.text-overlay h3 {
+    font-size: 24px;
+}
+
+/*פעם שלישית גלידההה*/
+.popular_section {
+    text-align: center;
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 1.7vw;
+    clear: both;
+    margin-top: 50px; /* מוסיף רווח בין הביקורות לתמונות */
+}
+
+.gallery_images {
+    max-width: 100%; /* מבטיח שהתמונות יתאימו לגודל התיבה */
+    height: auto;
+    background-color: white;
+    border-color: #e0d9ce;
+}
+
+#recommendations {
+    margin-bottom: 50px; /* מוסיף רווח נוסף מתחת לביקורות */
+}
+
+.video_section {
+    margin-top: 20px;
+}
+.form-container {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    margin: 100px auto; /* זה מרכז את הטופס */
+    padding: 30px;
+    margin-top: 50px; /* זה יוסיף רווח בין הטופס ללשונית העליונה */
+    text-align: center;
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333; /* Dark color for good readability */
+    font-size: 1.8em;
+}
+
+.form-container label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    color: #444;
+}
+
+.form-container input[type="text"],
+.form-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.form-container input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.form-container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #09044a; /* Deep color for button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container input[type="submit"]:hover {
+    background-color: #474775; /* Lighter hover effect */
+}
+/*פעם רביעית זה קסם*/
+.footer p {
+    text-align: center;
+    margin-top: 20px;
+    color: #444; /* צבע טקסט כהה */
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer p a {
+    color: #09044a; /* צבע בולט לקישור */
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer p a:hover {
+    color: #474775; /* שינוי צבע בהובר */
+}
+.checkout-button {
+    display: inline-block;
+    background-color: #4CAF50; /* צבע רקע ירוק */
+    color: white; /* צבע טקסט לבן */
+    text-align: center;
+    padding: 12px 24px; /* רווחים פנימיים לכפתור */
+    font-size: 16px;
+    text-decoration: none; /* הסרת קו תחתון */
+    border-radius: 8px; /* פינות מעוגלות */
+    transition: background-color 0.3s ease; /* מעבר צבע חלק */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* צל להעניק אפקט עומק */
+}
+
+.checkout-button:hover {
+    background-color: #45a049; /* שינוי צבע רקע בהנפת עכבר */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* הגברת הצל בהנפת עכבר */
+}
+
+.checkout-button:active {
+    background-color: #388e3c; /* צבע רקע בלחיצה */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* שינוי הצל בלחיצה */
+    transform: translateY(2px); /* תזוזה קלה למטה בלחיצה */
+}
+.contact-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.contact-container h1 {
+    font-family: 'Mulish', sans-serif;
+    color: #4CAF50;
+}
+.contact-container p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+.contact-container a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+.contact-container a:hover {
+    text-decoration: underline;
+}
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1; /* הסרטון יהיה מאחור */
+    object-fit: cover; /* הסרטון יכסה את המסך */
+}
+.bold-text {
+    font-weight: bold;
+}

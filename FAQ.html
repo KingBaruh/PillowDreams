@@ -1,0 +1,200 @@
+<!--
+ID1_208335927
+ID2_318739174
+-->
+<!DOCTYPE html>
+<html dir="ltr">
+<head>
+  <link rel="stylesheet" href="Project_B.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>FAQ - Bardi &#128171 &#128164</title>
+  <!-- CSS file:-->
+  <link rel="stylesheet" href="Project_B.css">
+
+  <style>
+    /* Style for the input field */
+    .styled-input {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 18px;
+    }
+
+    /* Style for input focus */
+    .styled-input:focus {
+      border-color: #4CAF50;
+      outline: none;
+    }
+  </style>
+
+</head>
+</html>
+<header>
+
+  <div class="logo">
+    <a href="HomePage.html"><img width="90px" height="auto" src="image/Logo.png"></a><br>
+  </div>
+
+  <div class="topnav">
+    <a href="login.html">Log In</a>
+    <a href="FAQ.html" class="active-in-nav">FAQ</a>
+    <a href="ContactUs.html">Contact Us</a>
+    <a href="Products.html">Products</a>
+  </div>
+</header>
+<body>
+
+<label>
+  <input type="text" class="styled-input" placeholder="Search.." oninput="search(this)">
+  <script>
+    const search = (input) => {
+      // Get the search value and convert it to lowercase for case-insensitive search
+      const searchTerm = input.value.toLowerCase();
+
+      // Get all rows from the table
+      const rows = document.querySelectorAll(".Adis_table .Adis_tr ");
+
+      // Loop through each row
+      rows.forEach(row => {
+        // Get all text content of the row and convert to lowercase
+        const rowText = row.textContent.toLowerCase();
+
+        // Check if the search term exists in the row text
+        if (rowText.includes(searchTerm) && searchTerm !== "") {
+          // If found, add the highlight class
+          row.classList.add("highlight");
+        } else {
+          // If not found or the search term is empty, remove the highlight
+          row.classList.remove("highlight");
+        }
+      });
+    };
+  </script>
+</label>
+<!-- Table of FAQ-->
+<table class="Adis_table" style="width:100%">
+  <tr>
+    <th class="Adis_th">Subjects number</th>
+    <th class="Adis_th">Common questions</th>
+    <th class="Adis_th">Possible answers</th>
+  </tr>
+  <tr class="Adis_tr">
+    <td class="Adis_td" title="question 1" style="width: 50px; height: auto;" >1</td>
+    <td class="Adis_td">Is there a cost to get one of your magnificant pillows?</td>
+    <td class="Adis_td">Of course! Developing a uniqe pillow algoritam and this website took resources, time and money and therefore we only offer paid deals in order to enjoy the pleasure of good night sleep with our pillows. </td>
+  </tr>
+  <tr>
+  <tr class="Adis_tr">
+    <td class="Adis_td" title="question 2" style="width: 50px; height: auto;" >2</td>
+    <td class="Adis_td">If i'm not happy with the pillow, can I replace it?</td>
+    <td class="Adis_td"> Yes you can!. In our company we got an option to recycle pillows that the clients disliked - only if you didn't print a personal image on it.</td>
+  </tr>
+  <tr>
+  <tr class="Adis_tr">
+    <td class="Adis_td" title="question 3" style="width: 50px; height: auto;" >3</td>
+    <td class="Adis_td">How does the recycling pillow process works exacly?</td>
+    <td class="Adis_td">We make sure that the previously unwanted pillow is being cleaned and disinfection process, before its being categorized in our store as 'recycled pillow'. Notice that those pillows are lower price and not alway avialable.</td>
+  </tr>
+  <tr>
+  <tr class="Adis_tr">
+    <td class="Adis_td" title="question 4" style="width: 50px; height: auto;" >4</td>
+    <td class="Adis_td">Can I return the recycled pillow?</td>
+    <td class="Adis_td"> No, unfortunately the recycled pillow cannot be returned - but hey, at least it's cheap!. </td>
+  </tr>
+  <tr class="Adis_tr">
+    <td class="Adis_td" title="question 5" style="width: 50px; height: auto;" >5</td>
+    <td class="Adis_td">How can I be sure you won't steal my credit card details?</td>
+    <td class="Adis_td">Our site uses the most advanced security measures in the world - you are transferred to an external site secured by FDA security, perform the transaction, and then your credit details disappear from any suspicious entity that could place itself on your details </td>
+  </tr>
+  <tr class="Adis_tr">
+    <td class="Adis_td" title="question 6" style="width: 50px; height: auto;" >6</td>
+    <td class="Adis_td">How long does it take to the pillow to arrive?</td>
+    <td class="Adis_td">We send it to transport as soon as possible after you complete your order. The shipping depends on your local mailmans.</td>
+  </tr>
+  <tr class="Adis_tr">
+    <td class="Adis_td" title="question 7" style="width: 50px; height: auto;" >7</td>
+    <td class="Adis_td">How does your algoritem works?</td>
+    <td class="Adis_td"> We make some decitions according to researches and doctor suggesgions of pillow usage from all over the world. We con't mention more then that so other companies won't steal our algoritam (:</td>
+  </tr>
+</table>
+<!-- Table explaining the process-->
+<table class="Adis_table" style="width:100%">
+  <tr>
+    <th class="Adis_th">Making An Order explanation</th>
+  </tr>
+  <tr class="Adis_tr">
+    <td class="Adis_td">First, you must decide which pillow you want, then you need to choose your customized pillow (you can add details about yourself to get our reccomendations, but its only a reccomendation)</td>
+  </tr>
+  <tr>
+  <tr class="Adis_tr">
+    <td class="Adis_td">Secondly, to place your purchase , you need to enter your credit information in our secure form.</td>
+  </tr>
+  <tr>
+  <tr class="Adis_tr">
+    <td class="Adis_td">Lastly, you wait a few days and get your awsome unique pillow!</td>
+  </tr>
+</table>
+<!--Us as company list:-->
+<div class="Adis_Text">
+  <ul>
+    <h3>About our company</h3>
+    <li class="Adis_li">We officially founded the company in 2017 and started operating it in 2020</li><br>
+    <li class="Adis_li">During the years between planning a unique pillow algoritam idea and operating it - we researched and tested during a peroiod of three years, the safety and reliability of the subject to get maximum sleep quality</li><br>
+    <li class="Adis_li"> Our offices are located in Haifa in a 'Matam' building, where we have a large number of departments working for the operation and maintenance of the site, its publication and the updating of the order options</li><br>
+    <li class="Adis_li">Our uniqe pillow products are international and available to all the citizens of every country in the world, and that is why the content of our website is in English - which is the most spoken language worldwide</li>
+  </ul>
+</div>
+<!--Us as company list:-->
+<div class="Adis_Text">
+  <ul>
+    <h3>Some comments from us to you (:</h3>
+    <li class="Adis_li">Please be patient - because of the different sizes and shapes of the pillows, it might take some time to get throught your local tax checkers</li><br>
+    <li class="Adis_li">Our team tries to provide the best products possible - and if their are any issue - please contact us (more details in our website 'contact us' page) .</li><br>
+    <li class="Adis_li">Hopefully you enjoy our shopping experience and quality pillows. we would be more then happy to hear about your experience in our critis page (: </li><br>
+  </ul>
+</div>
+
+<footer>
+  <div class="footer_logo">
+    <a href="HomePage.html"><img width="150px" height="auto" src="image/Logo.png"></a><br>
+  </div>
+
+  <div class="vertical_menu">
+    <a href="HomePage.html">Home</a>
+    <a href="Products.html">Products</a>
+    <a href="FAQ.html">FAQ</a>
+    <a href="login.html">Log In</a>
+  </div>
+
+  <div class="vertical_menu">
+    <a href="Products.html">Products</a>
+    <a href="ContactUs.html">Contact Us</a>
+    <a href="#facebook">Facebook</a>
+    <a href="#instagram">Instagram</a>
+  </div>
+
+  <div class="newsletter">
+    <h3>Sign up to our newsletter to get important updates:</h3>
+    <form>
+      <label for="email">Email:</label><br>
+      <input type="text_email" id="email" name="email">
+    </form>
+
+  </div>
+
+
+  <div class="copyright">
+    <p>Copyright © 2024 All right reserved to Adi Twizer 208335927 and Baruh Riss 318739174</p>
+  </div>
+</footer>
+</body>
+</html>

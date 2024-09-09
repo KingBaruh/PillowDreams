@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pillow Selection - Bardi &#128171 &#128164</title>
+  <link rel="stylesheet" href="Project_B.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <a href="HomePage.html"><img width="90px" height="auto" src="image/Logo.png"></a><br>
+  </div>
+  <div class="topnav">
+    <a href="login.html">Log In</a>
+    <a href="FAQ.html">FAQ</a>
+    <a href="ContactUs.html">Contact Us</a>
+    <a href="Products.html" class='active-in-nav'>Products</a>
+  </div>
+</header>
+
+<!-- גלריית הכריות -->
+<div class="gallery">
+  <div class="pillow-display" id="pillowDisplay"></div>
+</div>
+
+<!-- אפשרויות בחירת קטגוריות -->
+<div class="radio-group">
+  <h2>Only 15$ per pillow!</h2>
+  <h3>get one yourself right here:</h3>
+
+  <h3>Select Shape &#8595</h3>
+  <div class="radio-row">
+    <label><input type="radio" name="shape" value="square" onchange="updatePillow()" checked> Square</label>
+    <label><input type="radio" name="shape" value="circle" onchange="updatePillow()"> Circle</label>
+    <label><input type="radio" name="shape" value="heart" onchange="updatePillow()"> Heart</label>
+    <label><input type="radio" name="shape" value="triangle" onchange="updatePillow()"> Triangle</label>
+    <label><input type="radio" name="shape" value="orthopedic" onchange="updatePillow()"> orthopedic</label>
+  </div>
+
+  <h3>Select Design &#8595</h3>
+  <div class="radio-row"><span class="bold-text">Colors: </span>
+    <label><input type="radio" name="color" value="white" onchange="updatePillow()" checked> White</label>
+    <label><input type="radio" name="color" value="red" onchange="updatePillow()"> Red</label>
+    <label><input type="radio" name="color" value="orange" onchange="updatePillow()"> Orange</label>
+    <label><input type="radio" name="color" value="pink" onchange="updatePillow()"> Pink</label>
+    <label><input type="radio" name="color" value="gray" onchange="updatePillow()"> gray</label>
+    <label><input type="radio" name="color" value="blue" onchange="updatePillow()"> Blue</label>
+    <label><input type="radio" name="color" value="green" onchange="updatePillow()"> Green</label>
+  </div>
+  <div class="radio-row"><span class="bold-text">Unique designs: </span>
+    <label><input type="radio" name="color" value="Personlized" onchange="updatePillow()"> Personlized</label>
+    <label><input type="radio" name="color" value="1" onchange="updatePillow()"> Option 1</label>
+    <label><input type="radio" name="color" value="2" onchange="updatePillow()"> Option 2</label>
+    <label><input type="radio" name="color" value="3" onchange="updatePillow()"> Option 3</label>
+  </div>
+</div>
+
+<div class="Adis_h4">
+  <a href="Payment.html" class="checkout-button">Go to checkout →</a>
+</div>
+
+<!-- פרטים אישיים למילוי -->
+<div class="personal-details">
+  <h3>Fill in your personal details for a recommendation</h3>
+  <label>Age: <input type="number" id="age" name="age"></label>
+  <label>Gender: <input type="text" id="gender" name="gender"></label>
+  <label>Height: <input type="number" id="height" name="height"></label>
+  <label>Weight: <input type="number" id="weight" name="weight"></label>
+</div>
+
+<!-- Personal Recommendation Button -->
+<div class="Adis_h4">
+  <a href="#" class="checkout-button" onclick="getPersonalRecommendation()">Give me your personal recommendation!</a>
+</div>
+
+<!-- Message Box for Recommendation -->
+<div id="recommendationMessage" style="display:none; background-color: #f0f0f0; padding: 10px; border: 2px solid #000; position: fixed; top: 20%; left: 50%; transform: translate(-50%, -50%); z-index: 999;">
+  <p id="messageText">Here is our recommendation to you!</p>
+  <button onclick="closeMessage()">Close</button>
+</div>
+
+<script>
+  let images = {
+    'square': {
+      'white': 'WhiteSquarePillow',
+      'red': 'RedSquarePillow',
+      'orange': 'OrangeSquarePillow',
+      'pink': 'PinkSquarePillow',
+      'gray': 'GraySquarePillow',
+      'blue': 'BlueSquarePillow',
+      'green': 'GreenSquarePillow',
+      'Personlized' : 'PersonilzedSquarePillow',
+      '1' : 'BeachRoseSquarePillow',
+      '2' : 'SunFlowerSquarePillow',
+      '3' : 'BarbieSquarePillow'
+    },
+    'circle': {
+      'white': 'WhiteCirclePillow',
+      'red': 'RedCirclePillow',
+      'orange': 'OrangeCirclePillow',
+      'pink': 'PinkCirclePillow',
+      'gray': 'GrayCirclePillow',
+      'blue': 'BlueCirclePillow',
+      'green': 'GreenCirclePillow',
+      'Personlized' : 'PersonilzedCirclePillow',
+      '1' : 'FlowerCirclePillow',
+      '2' : 'MusicNoteCirclePillow',
+      '3' : 'LittleSunCirclePillow'
+    },
+    'heart': {
+      'white': 'WhiteHeartPillow',
+      'red': 'RedHeartPillow',
+      'orange': 'OrangeHeartPillow',
+      'pink': 'PinkHeartPillow',
+      'gray': 'GrayHeartPillow',
+      'blue': 'BlueHeartPillow',
+      'green': 'GreenHeartPillow',
+      'Personlized' : 'PersonlizedHeartPillow',
+      '1' : 'RainbowHeartPillow',
+      '2' : 'PixelHeartPillow',
+      '3' : 'FlowerHeartPillow'
+    },
+    'triangle': {
+      'white': 'WhiteTrianglePillow',
+      'red': 'RedTrianglePillow',
+      'orange': 'OrangeTrianglePillow',
+      'pink': 'PinkTrianglePillow',
+      'gray': 'GrayTrianglePillow',
+      'blue': 'BlueTrianglePillow',
+      'green': 'GreenTrianglePillow',
+      'Personlized' : 'PersonlizedTrianglePillow',
+      '1' : 'CarsTrianglePillow',
+      '2' : 'PirateTrianglePillow',
+      '3' : 'DottedTrianglePillow'
+    },
+    'orthopedic' : {
+      'white': 'WhiteOrthopedicPillow',
+      'red': 'RedOrthopedicPillow',
+      'orange': 'OrangeOrthopedicPillow',
+      'pink': 'PinkOrthopedicPillow',
+      'gray': 'GrayOrthopedicPillow',
+      'blue': 'BlueOrthopedicPillow',
+      'green': 'GreenOrthopedicPillow',
+      'Personlized' : 'PersonlizedOrthopedicPillow',
+      '1' : 'DottedOrthopedicPillow',
+      '2' : 'ShapedOrthopedicPillow',
+      '3' : 'BoneOrthopedicPillow'
+    }
+  };
+
+  let currentShape = 'square';
+  let currentColor = 'white';
+
+  function updatePillow() {
+    let colorRadios = document.querySelector('input[name="color"]:checked');
+    let shapeRadios = document.querySelector('input[name="shape"]:checked');
+
+    if (colorRadios) {
+      currentColor = colorRadios.value;
+    }
+
+    if (shapeRadios) {
+      currentShape = shapeRadios.value;
+    }
+
+    updateGallery();
+  }
+
+  function updateGallery() {
+    document.getElementById('pillowDisplay').style.backgroundImage = `url('image/${images[currentShape][currentColor]}.png')`;
+  }
+
+  function getPersonalRecommendation() {
+    // Get input values
+    const age = document.getElementById('age').value;
+    const gender = document.getElementById('gender').value;
+    const height = document.getElementById('height').value;
+    const weight = document.getElementById('weight').value;
+
+    // Check if all fields are filled
+    if (age && gender && height && weight) {
+      // Pick a random pillow from the current selection
+      const shape = document.querySelector('input[name="shape"]:checked').value;
+      const color = document.querySelector('input[name="color"]:checked').value;
+      const pillowOptions = images[shape];
+      const pillowKeys = Object.keys(pillowOptions);
+      const randomPillow = pillowKeys[Math.floor(Math.random() * pillowKeys.length)];
+
+      // Update the gallery with the random pillow
+      document.getElementById('pillowDisplay').style.backgroundImage = `url('image/${pillowOptions[randomPillow]}.png')`;
+
+      // Show recommendation message
+      showMessage("Here is our recommendation to you!");
+    } else {
+      // Show a message asking the user to fill all fields
+      showMessage("Please fill in all personal details for a recommendation.");
+    }
+  }
+
+  function showMessage(message) {
+    document.getElementById('messageText').textContent = message;
+    const messageBox = document.getElementById('recommendationMessage');
+    messageBox.style.display = 'block';
+
+    // Auto-close the message after 5 seconds
+    setTimeout(closeMessage, 5000);
+  }
+
+  function closeMessage() {
+    document.getElementById('recommendationMessage').style.display = 'none';
+  }
+
+  // תצוגה ראשונית
+  updateGallery();
+</script>
+
+<footer>
+  <div class="footer_logo">
+    <a href="HomePage.html"><img width="150px" height="auto" src="image/Logo.png"></a><br>
+  </div>
+
+
+  <div class="vertical_menu">
+    <a href="Products.html">Products</a>
+    <a href="ContactUs.html">Contact Us</a>
+    <a href="#facebook">Facebook</a>
+    <a href="#instagram">Instagram</a>
+  </div>
+
+  <div class="newsletter">
+    <h3>Sign up to our newsletter to get important updates:</h3>
+    <form>
+      <label for="email">Email:</label><br>
+      <input type="text_email" id="email" name="email">
+    </form>
+  </div>
+
+  <div class="copyright">
+    <p>Copyright © 2024 All right reserved to Adi Twizer 208335927 and Baruh Riss 318739174</p>
+  </div>
+</footer>
+
+</body>
+</html>
