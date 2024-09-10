@@ -593,9 +593,9 @@ input[type=text_email]
 .radio-group {
     margin: 20px;
     display: flex;
-    align-items: center;
-    transform: scale(1.2); /* Scales up the box on hover */
-
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically */
+    transform: scale(1.2);   /* Scales up the box */
 }
 
 .pillow-options {
@@ -839,10 +839,10 @@ input[type=text_email]
     width: 100px;
 }
 
+
 #container3D canvas {
     width: 100vw !important;
     height: 100vh !important;
-    position: absolute;
     left: 0;
     top: 80px;
 
