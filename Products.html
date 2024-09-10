@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pillow Selection - Bardi &#128171 &#128164</title>
   <link rel="stylesheet" href="Project_B.css">
+
 </head>
 <body>
 
@@ -25,35 +26,42 @@
   <h3>get one yourself right here:</h3>
 </div>
 
-<!-- אפשרויות בחירת קטגוריות -->
-<div class="radio-group">
-  <h3>Select Shape &#8595</h3>
-  <div class="pillow-options">
-    <label for="pillow-selection">Pillow:</label>
-    <select id="pillow-selection" name="pillow-options">
-      <option value="pillow">regular pillow</option>
-      <option value="square_pillow">square pillow</option>
-      <option value="triangular_pillow">triangular pillow</option>
-      <option value="circle_pillow">circle pillow</option>
-      <option value="cylinder_pillow">cylinder pillow</option>
-    </select>
+<div class="wrapper-pillow-selection-group">
+<div class="pillow-selection-group">
+  <div>
+    <h3>Select Shape &#8595</h3>
+    <div class="pillow-options">
+      <label for="pillow-selection"></label>
+      <select id="pillow-selection" name="pillow-options">
+        <option value="pillow">Regular Pillow</option>
+        <option value="square_pillow">Square Pillow</option>
+        <option value="triangular_pillow">Triangular Pillow</option>
+        <option value="circle_pillow">Circle Pillow</option>
+        <option value="cylinder_pillow">Cylinder Pillow</option>
+      </select>
+    </div>
   </div>
 
-  <h3>Select Color &#8595</h3>
-  <div id="colorPickerBox">
-    <label for="colorPicker">Pick Pillow Color:</label>
-    <input type="color" id="colorPicker" value="#ffffff">
+  <div>
+    <h3>Select Color &#8595</h3>
+    <div id="colorPickerBox">
+      <label for="colorPicker"></label>
+      <input type="color" id="colorPicker" value="#ffffff">
+    </div>
   </div>
 
-  <div id="add Picture">
-    <label for="pictureUpload">Upload Picture:</label>
-    <input type="file" id="pictureUpload" accept="image/*">
+  <div id="addPicture">
+    <label for="addPicture">Upload Picture</label>
+      <input type="file" id="pictureUpload" accept="image/*">
   </div>
 </div>
+</div>
+
 
 <!-- גלריית הכריות -->
 <div class="gallery">
   <div id="container3D"></div>
+  <div id="rotateDialog">Click to rotate the pillow, scroll for zoom</div>
 </div>
 
 

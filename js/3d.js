@@ -9,7 +9,6 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/l
 const scene = new THREE.Scene();
 //Create a new camera with positions and angles
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const camera_aspect = camera.aspect
 
 //Keep track of the mouse position for interaction
 let mouseX = window.innerWidth / 2;
@@ -98,34 +97,51 @@ function updateCamera(){
 switch (objToRender)
 {
     case 'square_pillow':
-        camera.position.z = 150;
+        camera.position.z = 120;
         break;
     case 'pillow':
-        camera.position.z = 300; // Adjust the distance as needed
+        camera.position.z = 225; // Adjust the distance as needed
         break;
     case 'triangular_pillow':
-        camera.position.z = 0.85;
+        camera.position.z = 0.6;
         break;
     case 'circle_pillow':
-        camera.position.z = 2.5;
+        camera.position.z = 1.4;
         break;
     case 'cylinder_pillow':
-        camera.position.z = 100;
+        camera.position.z = 77;
         break;
 }
 }
 
 //Add lights to the scene, so we can see the 3D model
+/*
 const topLight = new THREE.DirectionalLight(0xffffff, 1); // (color, intensity)
 topLight.position.set(500, 500, 500); //top-left-ish
 topLight.castShadow = true;
 scene.add(topLight);
+ */
+// Add a new point light for more even lighting
+const pointLight = new THREE.PointLight(0xffffff, 1, 500); // (color, intensity, distance)
+pointLight.position.set(0, 300, 200); // Position the light above and in front of the pillow
+scene.add(pointLight);
 
-const ambientLight = new THREE.AmbientLight(0x333333, 2); // Adjust intensity for the pillow model
+// Add another directional light to balance the lighting
+const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5); // Lower intensity to balance with other lights
+directionalLight.position.set(-500, -500, -500); // Position it opposite to the top light
+scene.add(directionalLight);
+
+// Adjust the ambient light for softer overall lighting
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.6); // Increase intensity slightly
 scene.add(ambientLight);
 
+/*
+const ambientLight = new THREE.AmbientLight(0x333333, 2); // Adjust intensity for the pillow model
+scene.add(ambientLight);
+ */
+
 //This adds controls to the camera, so we can rotate / zoom it with the mouse
-//controls = new OrbitControls(camera, renderer.domElement);
+controls = new OrbitControls(camera, renderer.domElement);
 
 //Render the scene and update interaction
 function animate() {
@@ -174,10 +190,7 @@ document.getElementById("colorPicker").addEventListener("input", (e) => {
 document.getElementById("pillow-selection").addEventListener("change",(e) => {
     objToRender = e.target.value; // Get the pillow value
     console.log("here + " + objToRender);
-    deletePillow();
-    updateCamera();
-    setUpPillow();            // Update the pillow
-    animate();
+    resetEverything();
 })
 
 document.getElementById('pictureUpload').addEventListener('change', (e) => {
@@ -194,9 +207,44 @@ document.getElementById('pictureUpload').addEventListener('change', (e) => {
     }
 });
 
+// Function to reset the entire scene and rebuild everything
+const resetEverything = () => {
+
+    deletePillow();
+
+    // Reset camera to initial position
+    camera.position.set(0, 0, 100);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    // Recreate controls for camera movement
+    controls = new OrbitControls(camera, renderer.domElement);
+
+    updateCamera();
+
+    // Set up the pillow model again
+    setUpPillow();
+
+    // Start the animation loop again
+    animate();
+};
+
+// Show the dialog at the start
+const rotateDialog = document.getElementById('rotateDialog');
+rotateDialog.style.display = 'block';
+
+// Function to hide the dialog
+const hideRotateDialog = () => {
+    rotateDialog.style.display = 'none';
+};
+
+// Listen for user interaction to hide the dialog
+document.getElementById('container3D').addEventListener('click', hideRotateDialog);  // For mouse click
+
 
 updateCamera();
 //Load the pillow file
 setUpPillow();
 //Start the 3D rendering
 animate();
+
