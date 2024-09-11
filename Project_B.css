@@ -570,28 +570,12 @@ input[type=text_email]
     justify-content: center;
     margin-top: 20px;
 }
-/*GPT FROM HERE*/
-  .gallery {
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 20px;
-  }
 
 .arrow {
     font-size: 40px;
     cursor: pointer;
 }
 
-.pillow-display { /*no need */
-    width: 350px;
-    height: 350px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: 2px solid #ccc;
-}
 
 .pillow-selection-group {
     background-color: white;
@@ -618,15 +602,54 @@ input[type=text_email]
 }
 
 .personal-details {
-    margin-top: 20px;
+    background-color: #f0f8ff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    margin: 20px auto;
+    font-family: 'Arial', sans-serif;
+}
+
+.personal-details.h3 {
+    text-align: center;
+    color: #333;
+}
+
+.input-group {
+    margin-bottom: 15px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
 }
 
-.personal-details input {
-    margin: 5px;
+.input-group label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.input-group input, .input-group select {
+    width: 60%;
     padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-group {
+    text-align: center;
+}
+
+.submit-group button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-group button:hover {
+    background-color: #45a049;
 }
 
 .highlight {
@@ -852,6 +875,18 @@ input[type=text_email]
 #colorPicker {
     width: 100%;
 }
+
+/*GPT FROM HERE*/
+.gallery {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
 #container3D{
     width: 75%;
 
@@ -867,13 +902,47 @@ input[type=text_email]
 
 }
 
-.gallery-title{
+.gallery-title {
+    background-color: #00000f;
+    padding: 20px;
+    border-radius: 10px;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 75%;
+    font-family: 'Verdana', sans-serif;
+}
+
+.gallery-title h2 {
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-title h3 {
+    color: white;
+    font-size: 24px;
+    font-weight: normal;
+    margin-top: 0;
+}
+.gallery-title h4 {
+    color: white;
+    font-size: 18px;
+    font-style: italic;
+    margin-top: 10px;
+    font-weight: normal;
+}
+
+.gallery-title:hover {
+    background-color: #09044a;
+    transition: background-color 0.3s ease;
 }
 
 #rotateDialog {
     position: absolute;
-    top: 80%;
+    top: 100%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1.2);
     padding: 20px;

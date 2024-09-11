@@ -24,6 +24,8 @@
 <div class="gallery-title">
   <h2>Only 15$ per pillow!</h2>
   <h3>get one yourself right here:</h3>
+  <h4>(if you want to get a custom made pillow according to your personal parameters, please scroll down!)</h4>
+
 </div>
 
 <div class="wrapper-pillow-selection-group">
@@ -31,7 +33,7 @@
   <div>
     <h3>Select Shape &#8595</h3>
     <div class="pillow-options">
-      <label for="pillow-selection"></label>
+      <label for="pillow-selection" ></label>
       <select id="pillow-selection" name="pillow-options">
         <option value="pillow">Regular Pillow</option>
         <option value="best_square_pillow">Square Pillow</option>
@@ -73,10 +75,31 @@
 <!-- פרטים אישיים למילוי -->
 <div class="personal-details">
   <h3>Fill in your personal details for a recommendation</h3>
-  <label>Age: <input type="number" id="age" name="age"></label>
-  <label>Gender: <input type="text" id="gender" name="gender"></label>
-  <label>Height: <input type="number" id="height" name="height"></label>
-  <label>Weight: <input type="number" id="weight" name="weight"></label>
+  <form>
+    <div class="input-group">
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age">
+    </div>
+
+    <div class="input-group">
+      <label for="gender-selection">Gender:</label>
+      <select id="gender-selection" name="pillow-options">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <label for="height">Height:</label>
+      <input type="number" id="height" name="height">
+    </div>
+
+    <div class="input-group">
+      <label for="weight">Weight:</label>
+      <input type="number" id="weight" name="weight">
+    </div>
+
+  </form>
 </div>
 
 <!-- Personal Recommendation Button -->
@@ -91,122 +114,70 @@
 </div>
 
 <script>
-  let images = {
-    'square': {
-      'white': 'WhiteSquarePillow',
-      'red': 'RedSquarePillow',
-      'orange': 'OrangeSquarePillow',
-      'pink': 'PinkSquarePillow',
-      'gray': 'GraySquarePillow',
-      'blue': 'BlueSquarePillow',
-      'green': 'GreenSquarePillow',
-      'Personlized' : 'PersonilzedSquarePillow',
-      '1' : 'BeachRoseSquarePillow',
-      '2' : 'SunFlowerSquarePillow',
-      '3' : 'BarbieSquarePillow'
-    },
-    'circle': {
-      'white': 'WhiteCirclePillow',
-      'red': 'RedCirclePillow',
-      'orange': 'OrangeCirclePillow',
-      'pink': 'PinkCirclePillow',
-      'gray': 'GrayCirclePillow',
-      'blue': 'BlueCirclePillow',
-      'green': 'GreenCirclePillow',
-      'Personlized' : 'PersonilzedCirclePillow',
-      '1' : 'FlowerCirclePillow',
-      '2' : 'MusicNoteCirclePillow',
-      '3' : 'LittleSunCirclePillow'
-    },
-    'heart': {
-      'white': 'WhiteHeartPillow',
-      'red': 'RedHeartPillow',
-      'orange': 'OrangeHeartPillow',
-      'pink': 'PinkHeartPillow',
-      'gray': 'GrayHeartPillow',
-      'blue': 'BlueHeartPillow',
-      'green': 'GreenHeartPillow',
-      'Personlized' : 'PersonlizedHeartPillow',
-      '1' : 'RainbowHeartPillow',
-      '2' : 'PixelHeartPillow',
-      '3' : 'FlowerHeartPillow'
-    },
-    'triangle': {
-      'white': 'WhiteTrianglePillow',
-      'red': 'RedTrianglePillow',
-      'orange': 'OrangeTrianglePillow',
-      'pink': 'PinkTrianglePillow',
-      'gray': 'GrayTrianglePillow',
-      'blue': 'BlueTrianglePillow',
-      'green': 'GreenTrianglePillow',
-      'Personlized' : 'PersonlizedTrianglePillow',
-      '1' : 'CarsTrianglePillow',
-      '2' : 'PirateTrianglePillow',
-      '3' : 'DottedTrianglePillow'
-    },
-    'orthopedic' : {
-      'white': 'WhiteOrthopedicPillow',
-      'red': 'RedOrthopedicPillow',
-      'orange': 'OrangeOrthopedicPillow',
-      'pink': 'PinkOrthopedicPillow',
-      'gray': 'GrayOrthopedicPillow',
-      'blue': 'BlueOrthopedicPillow',
-      'green': 'GreenOrthopedicPillow',
-      'Personlized' : 'PersonlizedOrthopedicPillow',
-      '1' : 'DottedOrthopedicPillow',
-      '2' : 'ShapedOrthopedicPillow',
-      '3' : 'BoneOrthopedicPillow'
-    }
-  };
-
-  let currentShape = 'square';
-  let currentColor = 'white';
-
-  function updatePillow() {
-    let colorRadios = document.querySelector('input[name="color"]:checked');
-    let shapeRadios = document.querySelector('input[name="shape"]:checked');
-
-    if (colorRadios) {
-      currentColor = colorRadios.value;
-    }
-
-    if (shapeRadios) {
-      currentShape = shapeRadios.value;
-    }
-
-    updateGallery();
-  }
-
-  function updateGallery() {
-    document.getElementById('pillowDisplay').style.backgroundImage = `url('image/${images[currentShape][currentColor]}.png')`;
-  }
-
   function getPersonalRecommendation() {
     // Get input values
     const age = document.getElementById('age').value;
-    const gender = document.getElementById('gender').value;
-    const height = document.getElementById('height').value;
-    const weight = document.getElementById('weight').value;
+    const gender = document.getElementById('gender-selection').value;
+    const height = parseFloat(document.getElementById('height').value);
+    const weight = parseFloat(document.getElementById('weight').value);
 
     // Check if all fields are filled
     if (age && gender && height && weight) {
-      // Pick a random pillow from the current selection
-      const shape = document.querySelector('input[name="shape"]:checked').value;
-      const color = document.querySelector('input[name="color"]:checked').value;
-      const pillowOptions = images[shape];
-      const pillowKeys = Object.keys(pillowOptions);
-      const randomPillow = pillowKeys[Math.floor(Math.random() * pillowKeys.length)];
+      // Calculate pillow dimensions based on height and weight
+      const pillowDimensions = calculatePillowDimensions(age, gender, height, weight);
 
-      // Update the gallery with the random pillow
-      document.getElementById('pillowDisplay').style.backgroundImage = `url('image/${pillowOptions[randomPillow]}.png')`;
-
-      // Show recommendation message
-      showMessage("Here is our recommendation to you!");
+      // Show recommendation message with dimensions
+      const message = `Here is our recommendation to you! Pillow Dimensions: ${pillowDimensions.length} x ${pillowDimensions.width} x ${pillowDimensions.thickness} cm.`;
+      showMessage(message);
     } else {
       // Show a message asking the user to fill all fields
       showMessage("Please fill in all personal details for a recommendation.");
     }
   }
+
+  function calculatePillowDimensions(age, gender, height, weight) {
+    let length, width, thickness;
+
+    // Determine length and width based on height and age
+    if (height < 160) {
+      length = 50;  // cm
+      width = 30;   // cm
+    } else if (height <= 180) {
+      length = 60;  // cm
+      width = 35;   // cm
+    } else {
+      length = 70;  // cm
+      width = 40;   // cm
+    }
+
+    // Adjust length based on age: smaller pillows for younger people
+    if (age < 20) {
+      length -= 5;  // cm
+      width -= 2;   // cm
+    } else if (age >= 60) {
+      length += 5;  // cm
+      width += 2;   // cm
+    }
+
+    // Determine thickness based on weight and gender
+    if (weight < 60) {
+      thickness = 10;  // cm
+    } else if (weight <= 80) {
+      thickness = 12;  // cm
+    } else {
+      thickness = 15;  // cm
+    }
+
+    // Adjust thickness based on gender
+    if (gender === 'female') {
+      thickness -= 1;  // Slightly thinner pillow for women
+    } else if (gender === 'male') {
+      thickness += 1;  // Slightly thicker pillow for men
+    }
+
+    return { length, width, thickness };
+  }
+
 
   function showMessage(message) {
     document.getElementById('messageText').textContent = message;
@@ -220,10 +191,8 @@
   function closeMessage() {
     document.getElementById('recommendationMessage').style.display = 'none';
   }
-
-  // תצוגה ראשונית
-  //updateGallery();
 </script>
+
 
 <footer>
   <div class="footer_logo">
