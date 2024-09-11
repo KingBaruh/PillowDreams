@@ -60,7 +60,9 @@ const setUpPillow = () => {
 
 
             if(objToRender !== 'cylinder_pillow')
-                object.rotation.set(0, 0, -20); // Set to origin
+                object.rotation.set(0, 0, Math.PI / 2);
+
+
 
             scene.add(object);
         },
@@ -96,9 +98,6 @@ function updateCamera(){
 //Set how far the camera will be from the 3D model (adjust for the pillow)
 switch (objToRender)
 {
-    case 'square_pillow':
-        camera.position.z = 120;
-        break;
     case 'pillow':
         camera.position.z = 225; // Adjust the distance as needed
         break;
@@ -110,6 +109,9 @@ switch (objToRender)
         break;
     case 'cylinder_pillow':
         camera.position.z = 77;
+        break;
+    case 'best_square_pillow':
+        camera.position.z = 8.7;
         break;
 }
 }
@@ -240,6 +242,8 @@ const hideRotateDialog = () => {
 
 // Listen for user interaction to hide the dialog
 document.getElementById('container3D').addEventListener('click', hideRotateDialog);  // For mouse click
+document.getElementById('rotateDialog').addEventListener('click', hideRotateDialog);  // For mouse click
+
 
 
 updateCamera();

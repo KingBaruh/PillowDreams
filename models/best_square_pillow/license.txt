@@ -1,0 +1,11 @@
+Model Information:
+* title:	white pillow
+* source:	https://sketchfab.com/3d-models/white-pillow-c30b21d97bf24c8bb2053b845ce3b8b8
+* author:	yezenzeynberekat (https://sketchfab.com/zeynith)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "white pillow" (https://sketchfab.com/3d-models/white-pillow-c30b21d97bf24c8bb2053b845ce3b8b8) by yezenzeynberekat (https://sketchfab.com/zeynith) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
