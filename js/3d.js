@@ -244,6 +244,15 @@ const hideRotateDialog = () => {
 document.getElementById('container3D').addEventListener('click', hideRotateDialog);  // For mouse click
 document.getElementById('rotateDialog').addEventListener('click', hideRotateDialog);  // For mouse click
 
+const openingDialog = document.getElementById('pillowDialog');
+openingDialog.style.display = 'block';
+
+document.getElementById('CustomPillowBtn').addEventListener('click', (e) => {
+    openingDialog.style.display = 'none';
+})
+document.getElementById('RandomPillowBtn').addEventListener('click', (e) => {
+    window.location.replace('Payment.html?price=10');
+})
 
 
 updateCamera();

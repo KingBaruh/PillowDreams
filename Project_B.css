@@ -961,3 +961,48 @@ input[type=text_email]
 
 
 }
+#pillowDialog {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+#pillowDialogContent {
+    background-color: white;
+    margin: 5% auto; /* Decreased margin for a more centered position */
+    padding: 40px; /* Increased padding for more space inside the dialog */
+    border: 1px solid #888;
+    width: 95%; /* Further increased width to make the dialog even larger */
+    max-width: 800px; /* Further increased maximum width */
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Increased shadow for a more prominent effect */
+    border-radius: 16px; /* Increased border radius for a more rounded look */
+}
+
+#pillowDialogContent button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 20px 40px; /* Increased padding for even larger buttons */
+    margin: 20px; /* Increased margin for more spacing around buttons */
+    cursor: pointer;
+    font-size: 25px; /* Increased font size for better readability */
+    border-radius: 16px; /* Increased border radius for buttons */
+}
+
+#pillowDialogContent button:hover {
+    background-color: #45a049;
+}
+#pillowDialogContent h3 {
+    font-size: 24px; /* Increase font size for better visibility */
+    color: #333; /* Darker color for better contrast */
+    margin: 20px 0; /* Add spacing above and below the heading */
+    font-weight: bold; /* Make the text bold */
+    text-transform: uppercase; /* Make the text uppercase for emphasis */
+    letter-spacing: 1px; /* Add some spacing between letters */
+}
+

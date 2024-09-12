@@ -51,7 +51,7 @@ ID2_318739174
 
         <div class="form-header">
             <h3>Payment details</h3>
-            <h1>15$</h1>
+            <h1 id="cost">15$</h1>
             <h4 class="title">Credit Card Details</h4>
         </div>
 
@@ -61,6 +61,24 @@ ID2_318739174
             <p id="monthlyPaymentResult">Your total payment will be divided to the number of payments you decide</p>
 
             <script>
+                let price;
+
+                window.addEventListener('DOMContentLoaded', (event) => {
+                    // Get the query string from the URL
+                    const urlParams = new URLSearchParams(window.location.search);
+
+                    // Get the price from the query string
+                    price = urlParams.get('price');
+
+                    // Update the price in the payment details
+                    document.querySelector('.form-header h1').innerText = `$${price}`;
+
+                    // Also update the calculation if necessary
+
+                    // Call the calculation function initially
+                    calculateMonthlyPayment();
+                });
+
                 function calculateMonthlyPayment()
                 {
                     // Get the selected number of payments from the input
@@ -70,7 +88,7 @@ ID2_318739174
                     if (!isNaN(numberOfPayments) && numberOfPayments > 0)
                     {
                         // Calculate the monthly payment
-                        let monthlyPayment = 15 / numberOfPayments;
+                        let monthlyPayment = price / numberOfPayments;
 
                         // Display the result on the page
                         if (numberOfPayments !== 1)
