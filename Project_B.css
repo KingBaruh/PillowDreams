@@ -628,8 +628,14 @@ input[type=text_email]
     font-weight: bold;
 }
 
-.input-group input, .input-group select {
+.input-group input {
     width: 60%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.input-group select{
+    width: 64%;
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
