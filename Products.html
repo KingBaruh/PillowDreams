@@ -26,8 +26,8 @@
 <div id="pillowDialog">
   <div id="pillowDialogContent">
     <h3>Select your pillow option</h3>
-    <button id="CustomPillowBtn">Pick a Custom Made Pillow for 15$</button>
-    <button id="RandomPillowBtn">Pick a Random Reused Pillow for 10$</button>
+    <button id="CustomPillowBtn" data-text-hover="Custom pillow selection, including the choice of colors, pillow shape, and image uploads. Also includes the option for pillow recommendations based on personal data.">Pick a Custom Made Pillow for 15$   </button>
+    <button id="RandomPillowBtn" data-text-hover="Option to receive a randomly returned pillow, helping the environment at a reduced price.">Pick a Random Reused Pillow for 10$ &#x2672</button>
   </div>
 </div>
 
@@ -124,74 +124,98 @@
 </div>
 
 <script>
+  function determinePillowShapes(age, gender, height, weight) {
+    let shapes = [];
+
+    // Base shapes determination based on height
+    if (height < 160) {
+      shapes.push('Regular Pillow');  // For shorter individuals
+    }
+    if (height <= 180) {
+      shapes.push('Square Pillow');   // For average height individuals
+    }
+    if (height > 180) {
+      shapes.push('Circle Pillow');   // For taller individuals
+    }
+
+    // Adjustments based on age
+    shapes = adjustForAge(shapes, age);
+
+    // Further adjustments based on weight
+    shapes = adjustForWeight(shapes, weight);
+
+    // Final adjustment based on gender
+    shapes = adjustForGender(shapes, gender);
+
+    return shapes;
+  }
+
+  function adjustForAge(shapes, age) {
+    if (age < 20) {
+      // Youth might prefer shapes that provide more comfort or fun
+      if (!shapes.includes('Triangular Pillow')) {
+        shapes.push('Triangular Pillow');
+      }
+    } else if (age >= 60) {
+      // Elderly might prefer shapes that provide more support or ease of use
+      if (!shapes.includes('Cylinder Pillow')) {
+        shapes.push('Cylinder Pillow');
+      }
+    }
+    return shapes;
+  }
+
+  function adjustForWeight(shapes, weight) {
+    if (weight < 60) {
+      // Lighter weight individuals might prefer softer or more comfortable shapes
+      if (!shapes.includes('Circle Pillow')) {
+        shapes.push('Circle Pillow');
+      }
+    } else if (weight > 80) {
+      // Heavier weight individuals might need firmer or more supportive shapes
+      if (!shapes.includes('Square Pillow')) {
+        shapes.push('Square Pillow');
+      }
+    }
+    return shapes;
+  }
+
+  function adjustForGender(shapes, gender) {
+    if (gender === 'female') {
+      // Example: females might prefer certain shapes
+      if (!shapes.includes('Square Pillow')) {
+        shapes.push('Square Pillow');
+      }
+    } else if (gender === 'male') {
+      // Example: males might prefer certain shapes
+      if (!shapes.includes('Cylinder Pillow')) {
+        shapes.push('Cylinder Pillow');
+      }
+    }
+    return shapes;
+  }
+
+  // Example usage
   function getPersonalRecommendation() {
-    // Get input values
     const age = document.getElementById('age').value;
     const gender = document.getElementById('gender-selection').value;
     const height = parseFloat(document.getElementById('height').value);
     const weight = parseFloat(document.getElementById('weight').value);
 
-    // Check if all fields are filled
     if (age && gender && height && weight) {
-      // Calculate pillow dimensions based on height and weight
-      const pillowDimensions = calculatePillowDimensions(age, gender, height, weight);
-
-      // Show recommendation message with dimensions
-      const message = `Here is our recommendation to you! Pillow Dimensions: ${pillowDimensions.length} x ${pillowDimensions.width} x ${pillowDimensions.thickness} cm.`;
+      const recommendedShapes = determinePillowShapes(age, gender, height, weight);
+      // Make pillow names bold in the message
+      const boldShapes = recommendedShapes.map(shape => `<strong>${shape}</strong>`);
+      const message = `Here are our recommendations for you: ${boldShapes.join(', ')}.`;
       showMessage(message);
     } else {
-      // Show a message asking the user to fill all fields
       showMessage("Please fill in all personal details for a recommendation.");
     }
   }
 
-  function calculatePillowDimensions(age, gender, height, weight) {
-    let length, width, thickness;
-
-    // Determine length and width based on height and age
-    if (height < 160) {
-      length = 50;  // cm
-      width = 30;   // cm
-    } else if (height <= 180) {
-      length = 60;  // cm
-      width = 35;   // cm
-    } else {
-      length = 70;  // cm
-      width = 40;   // cm
-    }
-
-    // Adjust length based on age: smaller pillows for younger people
-    if (age < 20) {
-      length -= 5;  // cm
-      width -= 2;   // cm
-    } else if (age >= 60) {
-      length += 5;  // cm
-      width += 2;   // cm
-    }
-
-    // Determine thickness based on weight and gender
-    if (weight < 60) {
-      thickness = 10;  // cm
-    } else if (weight <= 80) {
-      thickness = 12;  // cm
-    } else {
-      thickness = 15;  // cm
-    }
-
-    // Adjust thickness based on gender
-    if (gender === 'female') {
-      thickness -= 1;  // Slightly thinner pillow for women
-    } else if (gender === 'male') {
-      thickness += 1;  // Slightly thicker pillow for men
-    }
-
-    return { length, width, thickness };
-  }
-
-
   function showMessage(message) {
-    document.getElementById('messageText').textContent = message;
     const messageBox = document.getElementById('recommendationMessage');
+    document.getElementById('messageText').innerHTML = message; // Use innerHTML to render HTML
     messageBox.style.display = 'block';
 
     // Auto-close the message after 5 seconds

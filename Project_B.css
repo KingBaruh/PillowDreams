@@ -981,13 +981,14 @@ input[type=text_email]
     text-align: center;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Increased shadow for a more prominent effect */
     border-radius: 16px; /* Increased border radius for a more rounded look */
+    box-sizing: border-box; /* Ensure padding and border don't affect button size */
 }
 
 #pillowDialogContent button {
     background-color: #4CAF50;
     color: white;
     border: none;
-    padding: 20px 40px; /* Increased padding for even larger buttons */
+    padding: 5% 10%; /* Increased padding for even larger buttons */
     margin: 20px; /* Increased margin for more spacing around buttons */
     cursor: pointer;
     font-size: 25px; /* Increased font size for better readability */
@@ -996,9 +997,12 @@ input[type=text_email]
 
 #pillowDialogContent button:hover {
     background-color: #45a049;
+    transition: background-color 0.4s ease;
+    border: 2px solid rgba(16,95,37,1);
+    font-size: 1.25rem; /* Keep the font size consistent on hover */
 }
 #pillowDialogContent h3 {
-    font-size: 24px; /* Increase font size for better visibility */
+    font-size: 25px; /* Increase font size for better visibility */
     color: #333; /* Darker color for better contrast */
     margin: 20px 0; /* Add spacing above and below the heading */
     font-weight: bold; /* Make the text bold */

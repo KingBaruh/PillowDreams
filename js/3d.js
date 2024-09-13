@@ -191,7 +191,6 @@ document.getElementById("colorPicker").addEventListener("input", (e) => {
 
 document.getElementById("pillow-selection").addEventListener("change",(e) => {
     objToRender = e.target.value; // Get the pillow value
-    console.log("here + " + objToRender);
     resetEverything();
 })
 
@@ -253,6 +252,18 @@ document.getElementById('CustomPillowBtn').addEventListener('click', (e) => {
 document.getElementById('RandomPillowBtn').addEventListener('click', (e) => {
     window.location.replace('Payment.html?price=10');
 })
+
+document.querySelectorAll('#pillowDialogContent button').forEach(button => {
+    button.addEventListener('mouseenter', function() {
+        const originalText = this.textContent;
+        this.setAttribute('data-text-original', originalText);  // Store the original text
+        this.textContent = this.getAttribute('data-text-hover'); // Change to hover text
+    });
+
+    button.addEventListener('mouseleave', function() {
+        this.textContent = this.getAttribute('data-text-original'); // Restore original text
+    });
+});
 
 
 updateCamera();
