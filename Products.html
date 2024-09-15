@@ -34,12 +34,52 @@
 <div class="gallery-title">
   <h2>Only 15$ per pillow!</h2>
   <h3>get one yourself right here:</h3>
-  <h4>(if you want to get a custom made pillow according to your personal parameters, please scroll down!)</h4>
+  <h4>(if you want to get a custom made pillow according to your personal parameters, use the form below ↓ )</h4>
 
 </div>
 
+<!-- פרטים אישיים למילוי -->
+<div class="personal-details">
+  <div class="personal-details-h3">
+  <h3>Fill in your personal details for a recommendation (Not mandatory)</h3>
+  </div>
+  <form class="personal-details-form">
+    <div class="input-group">
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age">
+    </div>
+
+    <div class="input-group">
+      <label for="gender-selection">Gender:</label>
+      <select id="gender-selection" name="pillow-options">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <label for="height">Height:</label>
+      <input type="number" id="height" name="height">
+    </div>
+
+    <div class="input-group">
+      <label for="weight">Weight:</label>
+      <input type="number" id="weight" name="weight">
+    </div>
+
+  </form>
+
+  <!-- Personal Recommendation Button -->
+  <div class="Adis_h4">
+    <a href="#" class="checkout-button" onclick="getPersonalRecommendation()">Give me your personal recommendation!</a>
+  </div>
+</div>
+
+
+
 <div class="wrapper-pillow-selection-group">
 <div class="pillow-selection-group">
+
   <div>
     <h3>Select Shape &#8595</h3>
     <div class="pillow-options">
@@ -73,49 +113,15 @@
 <!-- גלריית הכריות -->
 <div class="gallery">
   <div id="container3D"></div>
-  <div id="rotateDialog">Click to rotate the pillow, scroll for zoom</div>
+  <div id="rotateDialog">Click and drag to rotate the pillow, scroll for zoom</div>
 </div>
 
 
 
 <div class="Adis_h4">
-  <a href="Payment.html?price=15" class="checkout-button">Go to checkout →</a>
+  <a href="Payment.html?price=15" class="checkout-button" style="font-size: 20px">Go to checkout →</a>
 </div>
 
-<!-- פרטים אישיים למילוי -->
-<div class="personal-details">
-  <h3>Fill in your personal details for a recommendation</h3>
-  <form>
-    <div class="input-group">
-      <label for="age">Age:</label>
-      <input type="number" id="age" name="age">
-    </div>
-
-    <div class="input-group">
-      <label for="gender-selection">Gender:</label>
-      <select id="gender-selection" name="pillow-options">
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-      </select>
-    </div>
-
-    <div class="input-group">
-      <label for="height">Height:</label>
-      <input type="number" id="height" name="height">
-    </div>
-
-    <div class="input-group">
-      <label for="weight">Weight:</label>
-      <input type="number" id="weight" name="weight">
-    </div>
-
-  </form>
-</div>
-
-<!-- Personal Recommendation Button -->
-<div class="Adis_h4">
-  <a href="#" class="checkout-button" onclick="getPersonalRecommendation()">Give me your personal recommendation!</a>
-</div>
 
 <!-- Message Box for Recommendation -->
 <div id="recommendationMessage" style="display:none; background-color: #f0f0f0; padding: 10px; border: 2px solid #000; position: fixed; top: 20%; left: 50%; transform: translate(-50%, -50%); z-index: 999;">

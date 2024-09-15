@@ -431,7 +431,7 @@ body
 footer
 {
     background-color: #e0d9cb;
-    margin-top: 20%;
+    margin-top: 10%;
     height: 200px;
     font-size: medium;
 }
@@ -606,21 +606,28 @@ input[type=text_email]
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 8px;
-    width: 300px;
+    width: 75%;
     margin: 20px auto;
     font-family: 'Arial', sans-serif;
+}
+.personal-details-form{
+    display: flex;
+    justify-content: center;
 }
 
 .personal-details.h3 {
     text-align: center;
     color: #333;
 }
+.personal-details-h3{
+    text-align: center;
+}
 
 .input-group {
-    margin-bottom: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 20px;
 }
 
 .input-group label {
@@ -948,7 +955,7 @@ input[type=text_email]
 
 #rotateDialog {
     position: absolute;
-    top: 100%;
+    top: 125%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1.2);
     padding: 20px;
