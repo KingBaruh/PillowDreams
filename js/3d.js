@@ -87,7 +87,7 @@ const loadTexture = () =>{
 }
 
 //Instantiate a new renderer and set its size
-const renderer = new THREE.WebGLRenderer({ alpha: true }); //Alpha: true allows for a transparent background
+let renderer = new THREE.WebGLRenderer({ alpha: true }); //Alpha: true allows for a transparent background
 //renderer.setSize(container.clientWidth, container.clientHeight);
 renderer.setSize(window.innerWidth, window.innerHeight);
 
@@ -213,12 +213,19 @@ const resetEverything = () => {
 
     deletePillow();
 
+
+
     // Reset camera to initial position
     camera.position.set(0, 0, 100);
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
 
+    if (controls) {
+        controls.dispose();
+    }
+
     // Recreate controls for camera movement
+
     controls = new OrbitControls(camera, renderer.domElement);
 
     updateCamera();
