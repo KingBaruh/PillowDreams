@@ -262,8 +262,6 @@ document.getElementById('RandomPillowBtn').addEventListener('click', (e) => {
 
 document.querySelectorAll('#pillowDialogContent button').forEach(button => {
     button.addEventListener('mouseenter', function() {
-        const originalText = this.textContent;
-        this.setAttribute('data-text-original', originalText);  // Store the original text
         this.textContent = this.getAttribute('data-text-hover'); // Change to hover text
     });
 
