@@ -1,6 +1,8 @@
 # PillowDreamsProject
 
-**PillowDreamsProject** is a website designed to help users improve their sleep quality by offering personalized pillows. The platform caters to individuals who value quality sleep and seek custom solutions to meet their specific needs.
+[Visit the PillowDreamsProject Website](https://kingbaruh.github.io/PillowDreams/)
+
+PillowDreamsProject is a website designed to help users improve their sleep quality by offering personalized pillows. The platform caters to individuals who value quality sleep and seek custom solutions to meet their specific needs.
 
 ## Project Overview
 
@@ -26,3 +28,7 @@ PillowDreamsProject provides a user-friendly interface that allows customers to 
 - **HTML**: For structuring the website.
 - **CSS**: For styling and designing the website.
 - **JavaScript**: For interactivity and functionality.
+
+---
+
+Feel free to explore the PillowDreamsProject and discover how it can improve your sleep quality with custom pillow solutions!
